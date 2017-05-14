@@ -49,9 +49,11 @@ JSONEditorWidget widget
 -----------------------
 
 Before:
+
 .. image:: https://raw.githubusercontent.com/jmrivas86/django-json-widget/master/imgs/jsonfield_0.png
 
 After:
+
 .. image:: https://raw.githubusercontent.com/jmrivas86/django-json-widget/master/imgs/jsonfield_1.png
 
 
