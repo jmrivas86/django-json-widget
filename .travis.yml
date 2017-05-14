@@ -4,12 +4,12 @@ language: python
 
 python:
   - "3.6"
+  - "3.5"
+  - "3.4"
+  - "2.7"
 
 env:
-  - TOX_ENV=py36-django-111
-  - TOX_ENV=py35-django-111
-  - TOX_ENV=py34-django-111
-  - TOX_ENV=py27-django-111
+  - DJANGO_VERSION=1.11.1
 
 matrix:
   fast_finish: true
@@ -18,7 +18,8 @@ matrix:
 install: pip install -r requirements_test.txt
 
 # command to run tests using coverage, e.g. python setup.py test
-script: tox -e $TOX_ENV
+script: coverage run --source django_json_widget runtests.py
+# script: tox -e $TOX_ENV
 
-after_success:
-  - codecov -e TOX_ENV
+# after_success:
+#   - codecov -e TOX_ENV

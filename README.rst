@@ -35,6 +35,8 @@ Add the widget in your admin.py:
 
 .. code-block:: python
 
+    from django.contrib import admin
+    from django.contrib.postgres import fields
     from django_json_widget.widgets import JSONEditorWidget
     from .models import YourModel
 
