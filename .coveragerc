@@ -1,0 +1,11 @@
+[run]
+branch = true
+
+[report]
+omit =
+    *site-packages*
+    *tests*
+    *.tox*
+show_missing = True
+exclude_lines =
+    raise NotImplementedError

@@ -1,0 +1,20 @@
+<div id="{{ name }}_editor" style="height:500px;float:right;width:90%;"></div>
+
+<textarea cols="40" id="id_{{ name }}" name="{{ name }}" rows="10" required="" style="display: none">{{ data }}</textarea>
+
+
+<script>
+    var container = document.getElementById("{{ name }}_editor");
+    var options = {
+        modes: ['text', 'code', 'tree', 'form', 'view'],
+        mode: 'tree',
+        search: true,
+        onChange: function () {
+            var json = editor.get();
+            document.getElementById("id_{{ name }}").value=JSON.stringify(json);
+        }
+    };
+    var editor = new JSONEditor(container, options);
+    var json = {{ data|safe }};
+    editor.set(json);
+</script>
