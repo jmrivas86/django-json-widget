@@ -46,3 +46,4 @@ output/*/index.html
 # Sphinx
 docs/_build
 /.tox/
+/dist/

@@ -9,7 +9,6 @@ Tests for `django-json-widget` models module.
 """
 
 from django.test import TestCase
-from django_json_widget import models
 
 
 class TestDjangoJsonWidget(TestCase):
