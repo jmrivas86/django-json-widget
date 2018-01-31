@@ -4,17 +4,19 @@
 
 
 <script>
-    var container = document.getElementById("{{ name }}_editor");
-    var options = {
-        modes: ['text', 'code', 'tree', 'form', 'view'],
-        mode: 'tree',
-        search: true,
-        onChange: function () {
-            var json = editor.get();
-            document.getElementById("id_{{ name }}").value=JSON.stringify(json);
-        }
-    };
-    var editor = new JSONEditor(container, options);
-    var json = {{ data|safe }};
-    editor.set(json);
+    (function() {
+        var container = document.getElementById("{{ name }}_editor");
+        var options = {
+            modes: ['text', 'code', 'tree', 'form', 'view'],
+            mode: 'tree',
+            search: true,
+            onChange: function () {
+                var json = editor.get();
+                document.getElementById("id_{{ name }}").value=JSON.stringify(json);
+            }
+        };
+        var editor = new JSONEditor(container, options);
+        var json = {{ data|safe }};
+        editor.set(json);
+    })();
 </script>
