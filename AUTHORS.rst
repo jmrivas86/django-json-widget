@@ -5,9 +5,9 @@ Credits
 Development Lead
 ----------------
 
-* José Manuel Rivas <jmrivas86@gmail.com>
+* José Manuel Rivas (jmrivas86) <jmrivas86@gmail.com>
 
 Contributors
 ------------
 
-None yet. Why not be the first?
+* Knut Hühne (k-nut) <knut@k-nut.eu>
