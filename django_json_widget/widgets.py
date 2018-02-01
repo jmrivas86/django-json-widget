@@ -6,8 +6,8 @@ from django.conf import settings
 
 class JSONEditorWidget(forms.Widget):
     class Media:
-        css = {'all': (settings.STATIC_URL + 'dist/jsoneditor.css',)}
-        js = (settings.STATIC_URL + 'dist/jsoneditor.js', )
+        css = {'all': (settings.STATIC_URL + 'dist/jsoneditor.min.css',)}
+        js = (settings.STATIC_URL + 'dist/jsoneditor.min.js', )
 
     template_name = 'django_json_widget.html'
 
