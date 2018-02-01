@@ -21,7 +21,7 @@ def get_version(*file_paths):
     raise RuntimeError('Unable to find version string.')
 
 
-version = get_version("django_json_widget", "__init__.py")
+# version = get_version("django_json_widget", "__init__.py")
 
 
 if sys.argv[-1] == 'publish':
@@ -46,7 +46,7 @@ history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
     name='django-json-widget',
-    version=version,
+    version='0.1.0',
     description="""Django json widget is an alternative widget that makes it easy to edit the jsonfield field of django.""",
     long_description=readme + '\n\n' + history,
     author='José Manuel Rivas',
