@@ -47,6 +47,25 @@ Add the widget in your admin.py:
             fields.JSONField: {'widget': JSONEditorWidget},
         }
 
+You can also add the widget in your forms.py and choose the default mode:
+
+.. code-block:: python
+    from django import forms
+    from django_json_widget.widgets import JSONEditorWidget
+    from .models import YourModel
+
+
+    class YourForm(forms.ModelForm):
+        class Meta:
+            model = YourModel
+
+            fields = ('jsonfield',)
+
+            widgets = {
+                # choose one mode from ['text', 'code', 'tree', 'form', 'view']
+                'jsonfield': JSONEditorWidget(mode='code')
+            }
+
 JSONEditorWidget widget
 -----------------------
 
