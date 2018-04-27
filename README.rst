@@ -50,6 +50,7 @@ Add the widget in your admin.py:
 You can also add the widget in your forms.py and choose the default mode:
 
 .. code-block:: python
+
     from django import forms
     from django_json_widget.widgets import JSONEditorWidget
     from .models import YourModel
