@@ -11,7 +11,7 @@ class JSONEditorWidget(forms.Widget):
 
     template_name = 'django_json_widget.html'
 
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, renderer=None):
         context = {
             'data': value,
             'name': name
