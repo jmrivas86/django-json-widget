@@ -8,7 +8,7 @@
         var container = document.getElementById("{{ name }}_editor");
         var options = {
             modes: ['text', 'code', 'tree', 'form', 'view'],
-            mode: 'tree',
+            mode: '{{ mode }}',
             search: true,
             onChange: function () {
                 var json = editor.get();
