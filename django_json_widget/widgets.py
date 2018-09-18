@@ -11,6 +11,7 @@ class JSONEditorWidget(forms.Widget):
 
     template_name = 'django_json_widget.html'
 
+
     def __init__(self, attrs=None, mode='code'):
         if not mode in ['text', 'code', 'tree', 'form', 'view']:
             mode = 'code'
@@ -19,7 +20,7 @@ class JSONEditorWidget(forms.Widget):
         super().__init__(attrs=attrs)
 
 
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, renderer=None):
         context = {
             'data': value,
             'name': name,
