@@ -9,7 +9,7 @@ python:
   - "2.7"
 
 env:
-  - DJANGO_VERSION=1.11.1
+  - DJANGO_VERSION=1.11.15
 
 matrix:
   fast_finish: true

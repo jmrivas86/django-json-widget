@@ -11,3 +11,5 @@ Contributors
 ------------
 
 * Knut Hühne (k-nut) <knut@k-nut.eu>
+* Qiying Wang (WqyJh) <781345688@qq.com>
+* Erkin Çakar (travijuu)
