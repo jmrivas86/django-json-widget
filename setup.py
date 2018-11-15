@@ -56,7 +56,7 @@ setup(
         'django_json_widget',
     ],
     include_package_data=True,
-    install_requires=[],
+    install_requires=['future'],
     license="MIT",
     zip_safe=False,
     keywords='django-json-widget',
