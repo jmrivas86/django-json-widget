@@ -1,22 +1,20 @@
-<div id="{{ name }}_editor" style="height:500px;float:right;width:90%;"></div>
+<div {% if not widget.attrs.style %}style="height:{{widget.height|default:'500px'}};width:{{widget.width|default:'90%'}};display:inline-block;"{% endif %}{% include "django/forms/widgets/attrs.html" %}></div>
 
-<textarea cols="40" id="id_{{ name }}" name="{{ name }}" rows="10" required="" style="display: none">{{ data }}</textarea>
-
+<textarea id="{{widget.attrs.id}}_textarea" name="{{ widget.name }}" required="" style="display: none">{{ widget.value }}</textarea>
 
 <script>
     (function() {
-        var container = document.getElementById("{{ name }}_editor");
-        var options = {
-            modes: ['text', 'code', 'tree', 'form', 'view'],
-            mode: '{{ mode }}',
-            search: true,
-            onChange: function () {
-                var json = editor.get();
-                document.getElementById("id_{{ name }}").value=JSON.stringify(json);
-            }
-        };
+        var container = document.getElementById("{{ widget.attrs.id }}");
+        var textarea = document.getElementById("{{widget.attrs.id}}_textarea");
+
+        var options = {{ widget.options|safe }};
+        options.onChange = function () {
+            var json = editor.get();
+            textarea.value=JSON.stringify(json);
+        }
+
         var editor = new JSONEditor(container, options);
-        var json = {{ data|safe }};
+        var json = {{ widget.value|safe }};
         editor.set(json);
     })();
 </script>
