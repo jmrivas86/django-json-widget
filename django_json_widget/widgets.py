@@ -12,7 +12,6 @@ class JSONEditorWidget(forms.Widget):
 
     template_name = 'django_json_widget.html'
 
-
     def __init__(self, attrs=None, mode='code', options=None, width=None, height=None):
         default_options = {
             'modes': ['text', 'code', 'tree', 'form', 'view'],
@@ -21,7 +20,7 @@ class JSONEditorWidget(forms.Widget):
         }
         if options:
             default_options.update(options)
-        
+
         self.options = default_options
         self.width = width
         self.height = height
