@@ -16,7 +16,7 @@
             }
         };
         var editor = new JSONEditor(container, options);
-        var json = {{ data|safe }};
+        var json = JSON.parse("{{ data|escapejs }}");
         editor.set(json);
     })();
 </script>
