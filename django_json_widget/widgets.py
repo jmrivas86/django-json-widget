@@ -25,7 +25,7 @@ class JSONEditorWidget(forms.Widget):
         self.width = width
         self.height = height
 
-        super().__init__(attrs=attrs)
+        super(JSONEditorWidget, self).__init__(attrs=attrs)
 
     def get_context(self, name, value, attrs):
         context = super().get_context(name, value, attrs)
