@@ -10,12 +10,12 @@ class JSONEditorWidget(forms.Widget):
     class Media:
         css = {
             'all': (
-                default_storage.url('dist/jsoneditor.min.css'),
+                default_storage.url('json_widget/dist/jsoneditor.min.css'),
             )
         }
 
         js = (
-            default_storage.url('dist/jsoneditor.min.js'),
+            default_storage.url('json_widget/dist/jsoneditor.min.js'),
         )
 
     template_name = 'django_json_widget.html'
