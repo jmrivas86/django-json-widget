@@ -3,12 +3,20 @@ from builtins import super
 
 from django import forms
 from django.conf import settings
+from django.core.files.storage import default_storage
 
 
 class JSONEditorWidget(forms.Widget):
     class Media:
-        css = {'all': (settings.STATIC_URL + 'dist/jsoneditor.min.css',)}
-        js = (settings.STATIC_URL + 'dist/jsoneditor.min.js',)
+        css = {
+            'all': (
+                default_storage.url('dist/jsoneditor.min.css'),
+            )
+        }
+
+        js = (
+            default_storage.url('dist/jsoneditor.min.js'),
+        )
 
     template_name = 'django_json_widget.html'
 
