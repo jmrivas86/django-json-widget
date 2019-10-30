@@ -1,4 +1,4 @@
-Django==1.11.1
+Django==2.1.11
 coverage==4.4
 mock>=1.0.1
 flake8>=2.1.0
