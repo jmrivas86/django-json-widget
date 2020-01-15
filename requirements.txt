@@ -1,3 +1,2 @@
-Django==2.1.1
-psycopg2==2.7.1
-ipdb
+Django==2.2
+psycopg2-binary==2.8.4

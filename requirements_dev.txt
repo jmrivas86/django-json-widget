@@ -1,9 +1,6 @@
-Django==2.1.1
+-r requirements.txt
 bumpversion==0.5.3
 wheel==0.29.0
-pytest==3.0.7
-tox==2.7.0
-pytest-cov==2.5.0
-flake8==3.3.0
-ipdb
-django-extensions
+flake8==3.7.9
+ipdb==0.12.3
+django-extensions==2.2.5
