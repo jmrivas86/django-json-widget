@@ -61,7 +61,7 @@ setup(
     zip_safe=False,
     keywords='django-json-widget',
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 5 - Production/Stable',
         'Framework :: Django',
         'Framework :: Django :: 1.11',
         'Framework :: Django :: 2.0',
