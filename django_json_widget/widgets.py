@@ -2,13 +2,13 @@ import json
 from builtins import super
 
 from django import forms
-from django.conf import settings
+from django.templatetags.static import static
 
 
 class JSONEditorWidget(forms.Widget):
     class Media:
-        css = {'all': (settings.STATIC_URL + 'dist/jsoneditor.min.css',)}
-        js = (settings.STATIC_URL + 'dist/jsoneditor.min.js',)
+        css = {'all': (static('dist/jsoneditor.min.css'), )}
+        js = (static('dist/jsoneditor.min.js'),)
 
     template_name = 'django_json_widget.html'
 
