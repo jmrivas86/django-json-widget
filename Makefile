@@ -58,5 +58,5 @@ sdist: clean ## package
 	python setup.py sdist
 	ls -l dist
 
-twine-release: clean ## upload release to pypi
+twine-release: ## upload release to pypi
 	twine upload dist/*
