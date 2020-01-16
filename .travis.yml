@@ -52,6 +52,7 @@ matrix:
 install:
   - pip install -r requirements_test.txt
 
+# command to install custom django version
 before_install: :
   - if [[ "$DJANGO_VERSION" == "1.11" ]]; then
     pip install Django==1.11.27;
