@@ -1,7 +1,7 @@
-Django==2.2.9
-coverage==5.0.3
-mock>=1.0.1
-codecov==2.0.15
-pytest==5.3.2
-pytest-cov==2.8.1
-tox==3.14.3
+Django
+coverage
+mock
+codecov
+pytest
+pytest-cov
+tox
