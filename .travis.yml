@@ -3,19 +3,67 @@
 language: python
 
 python:
+  - "3.7"
   - "3.6"
   - "3.5"
   - "3.4"
   - "2.7"
 
-env:
-  - DJANGO_VERSION=1.11.15
-
 matrix:
   fast_finish: true
+  include:
+    # DJANGO 1.11
+    - python: 2.7
+      env: DJANGO_VERSION=1.11
+    - python: 3.4
+      env: DJANGO_VERSION=1.11
+    - python: 3.5
+      env: DJANGO_VERSION=1.11
+    - python: 3.6
+      env: DJANGO_VERSION=1.11
+
+    # DJANGO 2.0
+    - python: 3.4
+      env: DJANGO_VERSION=2.0
+    - python: 3.5
+      env: DJANGO_VERSION=2.0
+    - python: 3.6
+      env: DJANGO_VERSION=2.0
+    - python: 3.7
+      env: DJANGO_VERSION=2.0
+
+    # DJANGO 2.1
+    - python: 3.5
+      env: DJANGO_VERSION=2.1
+    - python: 3.6
+      env: DJANGO_VERSION=2.1
+    - python: 3.7
+      env: DJANGO_VERSION=2.1
+
+    # DJANGO 2.2.9
+    - python: 3.5
+      env: DJANGO_VERSION=2.2.9
+    - python: 3.6
+      env: DJANGO_VERSION=2.2.9
+    - python: 3.7
+      env: DJANGO_VERSION=2.2.9
 
 # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-install: pip install -r requirements_test.txt
+install:
+  - echo "$DJANGO_VERSION"
+  - pip install -r requirements_test.txt
+  - if [[ "$DJANGO_VERSION" == 1.11 ]]; then
+    pip install Django==1.11.27;
+    fi
+  - if [[ "$DJANGO_VERSION" == 2.0 ]]; then
+    pip install Django==2.0.13;
+    fi
+  - if [[ "$DJANGO_VERSION" == 2.1 ]]; then
+    pip install Django==2.1.15;
+    fi
+  - if [[ "$DJANGO_VERSION" == 2.2.9 ]]; then
+    pip install Django==2.2.9;
+    fi
 
 # command to run tests using coverage, e.g. python setup.py test
 script: coverage run --source django_json_widget runtests.py

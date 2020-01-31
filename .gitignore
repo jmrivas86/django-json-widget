@@ -46,3 +46,11 @@ output/*/index.html
 docs/_build
 /.tox/
 /dist/
+
+# venv
+/.pypirc
+/example/.python-version
+
+# OS
+.DS_Store
+example/.DS_Store

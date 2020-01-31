@@ -1,33 +1,30 @@
-<div id="{{ name }}_editor" style="height:500px;float:right;width:90%;"></div>
+<div {% if not widget.attrs.style %}style="height:{{widget.height|default:'500px'}};width:{{widget.width|default:'90%'}};display:inline-block;"{% endif %}{% include "django/forms/widgets/attrs.html" %}></div>
 
-<textarea cols="40" id="id_{{ name }}" name="{{ name }}" rows="10" required="" style="display: none">{{ data }}</textarea>
+<textarea id="{{widget.attrs.id}}_textarea" name="{{ widget.name }}" required="" style="display: none">{{ widget.value }}</textarea>
 
 <script>
     (function() {
-        var container = document.getElementById("{{ name }}_editor"),
-            options = {
-                modes: ['text', 'code', 'tree', 'form', 'view'],
-                mode: '{{ mode }}',
-                search: true,
-                onChange: function () {
-                    var json = null;
+        var container = document.getElementById("{{ widget.attrs.id }}"),
+            textarea = document.getElementById("{{widget.attrs.id}}_textarea"),
+            options = {{ widget.options|safe }};
 
-                    try {  // try to get a well-formatted json...
-                        json = JSON.stringify(editor.get());
-                    } catch(e) {  // if it's not possible, get the raw string to use django validation!
-                        json = editor.getText()
-                    }
+        options.onChange = function () {
+            var json = null;
+            try {  // try to get a well-formatted json...
+                json = JSON.stringify(editor.get());
+            } catch(e) {  // if it's not possible, get the raw string to use django validation!
+                json = editor.getText()
+            }
+            textarea.value = json;
+          };
 
-                    document.getElementById("id_{{ name }}").value = json;
-                }
-            },
-            editor = new JSONEditor(container, options),
-            jsonString = `{{ data|safe }}`;  // the json string, maybe well-formatted, maybe not.
-        
-        try {  // is it well-formatted?
-            editor.set(JSON.parse(jsonString));
-        } catch(e) {  // set the json string for a quick change
-            editor.setText(jsonString);
-        }
+          var editor = new JSONEditor(container, options),
+              jsonString = `{{ widget.value|safe }}`;  // the json string, maybe well-formatted, maybe not.
+
+          try {
+              editor.set(JSON.parse(jsonString));
+          } catch(e) {
+              editor.setText(jsonString);
+          }
     })();
 </script>
