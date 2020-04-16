@@ -46,7 +46,7 @@ history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
     name='django-json-widget',
-    version='1.0.0',
+    version='1.0.1',
     description="""Django json widget is an alternative widget that makes it easy to edit the jsonfield field of django.""",
     long_description=readme + '\n\n' + history,
     author='José Manuel Rivas',
