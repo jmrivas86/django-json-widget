@@ -40,13 +40,13 @@ matrix:
     - python: 3.7
       env: DJANGO_VERSION=2.1
 
-    # DJANGO 2.2.9
+    # DJANGO 2.2.10
     - python: 3.5
-      env: DJANGO_VERSION=2.2.9
+      env: DJANGO_VERSION=2.2.10
     - python: 3.6
-      env: DJANGO_VERSION=2.2.9
+      env: DJANGO_VERSION=2.2.10
     - python: 3.7
-      env: DJANGO_VERSION=2.2.9
+      env: DJANGO_VERSION=2.2.10
 
 # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
 install:
@@ -61,7 +61,7 @@ install:
   - if [[ "$DJANGO_VERSION" == 2.1 ]]; then
     pip install Django==2.1.15;
     fi
-  - if [[ "$DJANGO_VERSION" == 2.2.9 ]]; then
+  - if [[ "$DJANGO_VERSION" == 2.2.10 ]]; then
     pip install Django==2.2.9;
     fi
 
