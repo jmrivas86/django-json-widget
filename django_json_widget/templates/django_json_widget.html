@@ -1,4 +1,4 @@
-<div {% if not widget.attrs.style %}style="height:{{widget.height|default:'500px'}};width:{{widget.width|default:'50%'}};display:inline-block;float:right;"{% endif %}{% include "django/forms/widgets/attrs.html" %}></div>
+<div {% if not widget.attrs.style %}style="height:{{widget.height|default:'500px'}};width:{{widget.width|default:'50%'}};display:inline-block;float:{{widget.float|default:'left'}};"{% endif %}{% include "django/forms/widgets/attrs.html" %}></div>
 
 <textarea id="{{widget.attrs.id}}_textarea" name="{{ widget.name }}" required="" style="display: none">{{ widget.value }}</textarea>
 
