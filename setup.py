@@ -22,7 +22,7 @@ def get_version(*file_paths):
 
 
 # version = get_version("django_json_widget", "__init__.py")
-
+version = "1.0.1"
 
 if sys.argv[-1] == 'publish':
     try:
