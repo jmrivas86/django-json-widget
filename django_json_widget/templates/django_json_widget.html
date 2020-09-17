@@ -8,11 +8,14 @@
         var textarea = document.getElementById("{{widget.attrs.id}}_textarea");
 
         var options = {{ widget.options|safe }};
+        if(options.onEditable) {
+            eval('var onEditable = ' + options.onEditable)
+            options.onEditable = onEditable;
+        }
         options.onChange = function () {
             var json = editor.get();
             textarea.value=JSON.stringify(json);
         }
-
         var editor = new JSONEditor(container, options);
         var json = {{ widget.value|safe }};
         editor.set(json);

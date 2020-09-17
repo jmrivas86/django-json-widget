@@ -73,12 +73,33 @@ You can customize the JSONEditorWidget with the following options:
 
 * **width**: Width of the editor as a string with CSS size units (px, em, % etc). Defaults to ``90%``.
 * **height**: Height of the editor as a string CSS size units. Defaults to ``550px``.
-* **options**: A dict of options accepted by the `JSON editor`_. Options that require functions (eg. onError) are not supported. 
+* **options**: A dict of options accepted by the `JSON editor`_. Options that require functions (eg. onError) are not supported.
 * **mode (deprecated)**: The default editor mode. This argument is redundant because it can be specified as a part of ``options``.  Preserved for backwards compatibility with version 0.2.0.
 * **attrs**: HTML attributes to be applied to the wrapper element. See the `Django Widget documentation`_.
 
 .. _json editor: https://github.com/josdejong/jsoneditor/blob/master/docs/api.md#configuration-options
 .. _Django Widget documentation: https://docs.djangoproject.com/en/2.1/ref/forms/widgets/#django.forms.Widget.attrs
+
+
+Specifying an ``onEditable`` function to make the widget read-only:
+
+.. code-block:: python
+
+    from django.contrib import admin
+    from django.contrib.postgres import fields
+    from django_json_widget.widgets import JSONEditorWidget
+    from .models import YourModel
+
+
+    @admin.register(YourModel)
+    class YourModelAdmin(admin.ModelAdmin):
+        formfield_overrides = {
+            fields.JSONField: {
+                'widget': JSONEditorWidget(
+                    options={'onEditable': 'function() {return {field: false, value: false}}'}
+                )
+            },
+        }
 
 
 JSONEditorWidget widget
