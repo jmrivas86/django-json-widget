@@ -56,7 +56,8 @@ setup(
         'django_json_widget',
     ],
     include_package_data=True,
-    install_requires=['future'],
+    # Only required for Django < 3.1
+    # install_requires=['future'],
     license="MIT",
     zip_safe=False,
     keywords='django-json-widget',
