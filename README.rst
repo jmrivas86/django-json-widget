@@ -36,7 +36,7 @@ Add the widget in your admin.py:
 .. code-block:: python
 
     from django.contrib import admin
-    from django.contrib.postgres import fields
+    # from django.contrib.postgres import fields # if django < 3.1
     from django.db import models
     from django_json_widget.widgets import JSONEditorWidget
     from .models import YourModel
@@ -45,6 +45,7 @@ Add the widget in your admin.py:
     @admin.register(YourModel)
     class YourModelAdmin(admin.ModelAdmin):
         formfield_overrides = {
+            # fields.JSONField: {'widget': JSONEditorWidget}, # if django < 3.1
             models.JSONField: {'widget': JSONEditorWidget},
         }
 
@@ -74,7 +75,7 @@ You can customize the JSONEditorWidget with the following options:
 
 * **width**: Width of the editor as a string with CSS size units (px, em, % etc). Defaults to ``90%``.
 * **height**: Height of the editor as a string CSS size units. Defaults to ``550px``.
-* **options**: A dict of options accepted by the `JSON editor`_. Options that require functions (eg. onError) are not supported. 
+* **options**: A dict of options accepted by the `JSON editor`_. Options that require functions (eg. onError) are not supported.
 * **mode (deprecated)**: The default editor mode. This argument is redundant because it can be specified as a part of ``options``.  Preserved for backwards compatibility with version 0.2.0.
 * **attrs**: HTML attributes to be applied to the wrapper element. See the `Django Widget documentation`_.
 

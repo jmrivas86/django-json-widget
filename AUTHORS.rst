@@ -18,3 +18,5 @@ Contributors
 * Artur BarseghyanArtur Barseghyan (barseghyanartur)
 * Alexandre Voiney (avoiney)
 * Michał Bielawski (D3X)
+* Arcuri Davide (dadokkio)
+* Ling Li (lingster)
