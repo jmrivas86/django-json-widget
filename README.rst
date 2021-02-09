@@ -32,8 +32,11 @@ Add it to your `INSTALLED_APPS`:
     )
 
 Add to your settings.py:
-JSON_EDITOR_JS = 'https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.0.3/jsoneditor.js'
-JSON_EDITOR_CSS = 'https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.0.3/jsoneditor.css'
+
+.. code-block:: python
+
+    JSON_EDITOR_JS = 'https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.0.3/jsoneditor.js'
+    JSON_EDITOR_CSS = 'https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.0.3/jsoneditor.css'
 
 
 Add the widget in your admin.py:
