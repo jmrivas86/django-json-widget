@@ -127,5 +127,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-JSON_EDITOR_JS = 'https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.0.3/jsoneditor.js'
-JSON_EDITOR_CSS = 'https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.0.3/jsoneditor.css'
+JSON_EDITOR_JS = 'https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.1.6/jsoneditor.min.js'
+JSON_EDITOR_CSS = 'https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.1.6/jsoneditor.min.css'
