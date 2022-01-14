@@ -2,6 +2,10 @@
 
 <textarea id="{{widget.attrs.id}}_textarea" name="{{ widget.name }}" required="" style="display: none">{{ widget.value }}</textarea>
 
+{% with script_id=widget.name|add:"_data" %}
+{{ widget.value|json_script:script_id }}
+{% endwith %}
+
 <script>
     (function() {
         var container = document.getElementById("{{ widget.attrs.id }}");
@@ -14,7 +18,7 @@
         }
 
         var editor = new JSONEditor(container, options);
-        var json = {{ widget.value|safe }};
+        var json = JSON.parse(document.getElementById("{{ widget.name }}_data").textContent);
         editor.set(json);
     })();
 </script>
