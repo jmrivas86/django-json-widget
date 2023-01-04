@@ -1,2 +1,1 @@
-Django>=2.2.13
-psycopg2-binary==2.8.4 # Only needed when Django less than 3.1 after that the django JSONField should be used
+Django>=3.2
