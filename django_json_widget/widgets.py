@@ -40,3 +40,6 @@ class JSONEditorWidget(forms.Widget):
         context['widget']['height'] = self.height
 
         return context
+
+    def format_value(self, value):
+        return json.loads(value)
