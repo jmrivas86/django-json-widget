@@ -36,7 +36,7 @@ Add the widget in your admin.py:
 .. code-block:: python
 
     from django.contrib import admin
-    from django.db import models
+    from django.db.models import JSONField
     from django_json_widget.widgets import JSONEditorWidget
     from .models import YourModel
 
@@ -44,7 +44,7 @@ Add the widget in your admin.py:
     @admin.register(YourModel)
     class YourModelAdmin(admin.ModelAdmin):
         formfield_overrides = {
-            models.JSONField: {'widget': JSONEditorWidget},
+            JSONField: {'widget': JSONEditorWidget},
         }
 
 You can also add the widget in your forms.py:

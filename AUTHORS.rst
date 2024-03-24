@@ -21,3 +21,7 @@ Contributors
 * Arcuri Davide (dadokkio)
 * Ling Li (lingster)
 * Steven Mapes (StevenMapes)
+* Stefan Wehrmeyer (stefanw)
+* Michał Bielawski (D3X)
+* Ashok Argent-Katwala (ashokdelphia)
+* Chris Culhane (cfculhane)

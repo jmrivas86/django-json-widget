@@ -2,6 +2,16 @@
 Changelog
 =========
 
+1.2.0 (2024-03-24)
+==================
+
+* Fix default paths for static files #53
+* Stop declaring support for Django versions before 3.2 #65
+* Avoid HTML injection via unsafe JSON injection #64
+* Remove source map reference from JS bundle #70
+* Add dark mode CSS support #82
+* Updated documentation
+
 1.1.1 (2021-02-17)
 ==================
 
