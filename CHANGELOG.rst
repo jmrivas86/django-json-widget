@@ -2,7 +2,7 @@
 Changelog
 =========
 
-1.2.0 (2024-03-24)
+2.0.0 (2024-03-24)
 ==================
 
 * Fix default paths for static files #53
