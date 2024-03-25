@@ -64,7 +64,7 @@ setup(
         'Framework :: Django',
         'Framework :: Django :: 3.2',
         'Framework :: Django :: 4.2',
-        'Framework :: Django :: 5',
+        'Framework :: Django :: 5.0.3',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
