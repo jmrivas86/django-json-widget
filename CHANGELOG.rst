@@ -2,6 +2,11 @@
 Changelog
 =========
 
+2.0.1 (2024-03-2)
+==================
+
+* Fixec Version 2.0.0 causes issues with Django 4.x due to missing sourcemaps issue #83
+
 2.0.0 (2024-03-24)
 ==================
 

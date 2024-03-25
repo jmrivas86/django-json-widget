@@ -25,3 +25,4 @@ Contributors
 * Michał Bielawski (D3X)
 * Ashok Argent-Katwala (ashokdelphia)
 * Chris Culhane (cfculhane)
+* Amar Sahinovic (amarsahinovic)
