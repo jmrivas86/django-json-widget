@@ -67,10 +67,12 @@ class JSONEditorWidget(forms.Widget):
         """
         When form is submitted, unescape the HTML entities in the JSON data
         """
-        value = json.loads(value)
         if value:
             try:
-                json_value = json.loads(value)
+                if not isinstance(value, dict):
+                    json_value = json.loads(value)
+                else:
+                    json_value = value
 
                 def unescape_html_in_json(obj):
                     if isinstance(obj, str):
