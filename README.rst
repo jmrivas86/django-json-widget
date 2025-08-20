@@ -93,6 +93,92 @@ After:
 .. image:: https://raw.githubusercontent.com/jmrivas86/django-json-widget/master/imgs/jsonfield_1.png
 
 
+Development Guide
+-----------------
+
+This section provides instructions for setting up a development environment and contributing to django-json-widget.
+
+Setting up Development Environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Clone the repository**::
+
+    git clone https://github.com/jmrivas86/django-json-widget.git
+    cd django-json-widget
+
+2. **Create a virtual environment** (recommended)::
+
+    python -m venv venv
+    source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+3. **Install development dependencies**::
+
+    pip install -r requirements_dev.txt
+
+4. **Install test dependencies**::
+
+    pip install -r requirements_test.txt
+
+5. **Install the package in development mode**::
+
+    pip install -e .
+
+Running Tests
+~~~~~~~~~~~~~
+
+The project includes several ways to run tests:
+
+**Using the runtests.py script** (recommended)::
+
+    python runtests.py
+
+This will run all tests using Django's test runner with the test settings.
+
+**Using tox for multiple environments**::
+
+    tox
+
+This will run tests against multiple Python and Django version combinations as defined in ``tox.ini``.
+
+**With coverage reporting**::
+
+    coverage run --source django_json_widget runtests.py
+    coverage report
+    coverage html  # Generates HTML coverage report
+
+Test Structure
+~~~~~~~~~~~~~~
+
+The test suite is organized as follows:
+
+* ``tests/test_widgets.py`` - Core widget functionality tests
+* ``tests/test_widget_security.py`` - Security-focused tests
+* ``tests/settings.py`` - Test-specific Django settings
+
+The tests cover:
+
+* Widget initialization and configuration
+* Media file handling (CSS/JS)
+* Template rendering and context generation
+* Form integration
+* Security aspects (XSS prevention, safe JSON handling)
+* Performance with large datasets
+* Edge cases and error handling
+
+Code Quality
+~~~~~~~~~~~~
+
+**Run linting with auto-fix**::
+
+    ruff check --fix
+
+**Check test coverage**::
+
+    coverage run --source django_json_widget runtests.py
+    coverage report --show-missing
+
+Aim for maintaining or improving test coverage.
+
 Credits
 -------
 
