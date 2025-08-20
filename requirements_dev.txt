@@ -3,7 +3,7 @@ psycopg2-binary==2.9.9
 bumpversion==0.6.0
 twine==5.0.0
 wheel==0.43.0
-flake8==7.0.0
+ruff==0.8.4
 ipdb==0.13.13
 django-extensions==3.2.3
 setuptools>=69.2.0
