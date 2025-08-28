@@ -42,4 +42,7 @@ class JSONEditorWidget(forms.Widget):
         return context
 
     def format_value(self, value):
-        return json.loads(value)
+        if not isinstance(value, dict):
+            return json.loads(value)
+        else:
+            return value
