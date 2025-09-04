@@ -1,5 +1,4 @@
 import json
-from builtins import super
 
 from django import forms
 from django.conf import settings
@@ -31,7 +30,7 @@ class JSONEditorWidget(forms.Widget):
         self.width = width
         self.height = height
 
-        super(JSONEditorWidget, self).__init__(attrs=attrs)
+        super().__init__(attrs=attrs)
 
     def get_context(self, name, value, attrs):
         context = super().get_context(name, value, attrs)
@@ -42,4 +41,7 @@ class JSONEditorWidget(forms.Widget):
         return context
 
     def format_value(self, value):
-        return json.loads(value)
+        if not isinstance(value, (dict, list)):
+            return json.loads(value)
+        else:
+            return value

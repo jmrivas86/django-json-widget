@@ -163,6 +163,14 @@ class JSONEditorWidgetValueFormattingTests(TestCase):
         with self.assertRaises((TypeError, json.JSONDecodeError)):
             widget.format_value(None)
 
+    def test_format_value_dict(self):
+        widget = JSONEditorWidget()
+        self.assertEqual(widget.format_value({}), {})
+
+    def test_format_value_list(self):
+        widget = JSONEditorWidget()
+        self.assertEqual(widget.format_value([]), [])
+
 
 class JSONEditorWidgetTemplateRenderingTests(TestCase):
     """Test widget template rendering"""
