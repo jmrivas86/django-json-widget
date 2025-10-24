@@ -135,4 +135,19 @@ docstring-code-format = true
 
 # Set the line length limit used when formatting code snippets in
 # docstrings.
-docstring-code-line-length = "dynamic" 
+docstring-code-line-length = "dynamic"
+
+[tool.pytest.ini_options]
+python_files = ["test_*.py", "*_test.py"]
+testpaths = ["tests"]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--verbose",
+    "--reuse-db",
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+]
+DJANGO_SETTINGS_MODULE = "tests.settings"

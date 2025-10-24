@@ -21,3 +21,29 @@ INSTALLED_APPS = [
 SITE_ID = 1
 
 MIDDLEWARE = ()
+
+# JSON Editor Widget Settings
+JSON_EDITOR_JS = 'dist/jsoneditor.min.js'
+JSON_EDITOR_CSS = 'dist/jsoneditor.min.css'
+
+# Template configuration
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': ['tests/templates'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+            'builtins': [
+                'django.template.defaulttags',
+                'django.template.defaultfilters',
+                'django.template.loader_tags',
+            ],
+        },
+    },
+]
