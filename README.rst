@@ -72,6 +72,29 @@ You can customize the JSONEditorWidget with the following options:
 * **mode (deprecated)**: The default editor mode. This argument is redundant because it can be specified as a part of ``options``.  Preserved for backwards compatibility with version 0.2.0.
 * **attrs**: HTML attributes to be applied to the wrapper element. See the `Django Widget documentation`_.
 
+Accessing JsonEditor Instance
+-----------------------------
+
+The JsonEditor instance is automatically exposed for external access through two methods:
+
+1. **Window object**: Available as ``window['FIELD_ID_editor']`` where FIELD_ID is the field's HTML ID
+2. **DOM element**: Available as ``container.jsonEditor`` property on the widget's container element
+
+Example usage for external JavaScript access:
+
+.. code-block:: javascript
+
+    // Access via window object
+    var editor = window['id_jsonfield_editor'];
+    editor.set({'key': 'new value'});
+    
+    // Access via DOM element
+    var container = document.getElementById('id_jsonfield');
+    var editor = container.jsonEditor;
+    editor.set({'key': 'new value'});
+
+This allows you to programmatically call JsonEditor methods like ``set()``, ``get()``, ``update()``, etc. from custom JavaScript code running in your admin pages or forms.
+
 .. _json editor: https://github.com/josdejong/jsoneditor/blob/master/docs/api.md#configuration-options
 .. _Django Widget documentation: https://docs.djangoproject.com/en/2.1/ref/forms/widgets/#django.forms.Widget.attrs
 
