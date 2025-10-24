@@ -2,6 +2,11 @@
 Changelog
 =========
 
+2.1.0 (2025-10-24)
+------------------
+
+* Issue #114: expose editor instance to window object and DOM element.
+
 2.0.4 (2025-10-11)
 ------------------
 
