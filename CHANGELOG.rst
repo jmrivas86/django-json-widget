@@ -2,6 +2,11 @@
 Changelog
 =========
 
+2.1.1 (2025-12-12)
+------------------
+
+* Issue #108: respect Django admin color scheme setting for JSON editor.
+
 2.1.0 (2025-10-24)
 ------------------
 
