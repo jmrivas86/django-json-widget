@@ -182,11 +182,16 @@ class JSONEditorWidgetTemplateRenderingTests(TestCase):
 
     def test_template_exists(self):
         """Test that template exists"""
-        from os import getcwd, path
+        from pathlib import Path
+        import django_json_widget
         widget = JSONEditorWidget()
-        template_file = path.join(getcwd(), "django_json_widget", "templates", widget.template_name)
+        template_file = (
+            Path(django_json_widget.__file__).parent
+            / "templates"
+            / widget.template_name
+        )
         self.assertTrue(str(template_file).endswith("django_json_widget.html"))
-        self.assertTrue(path.exists(template_file))
+        self.assertTrue(template_file.exists())
 
     def test_render_basic(self):
         """Test basic widget rendering"""
