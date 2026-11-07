@@ -99,7 +99,7 @@ class JSONEditorWidgetSecurityTests(TestCase):
             html = widget.render(name, '{}', {'id': f'id_{name}'})
             # Should render without errors and contain the name
             self.assertIn(name, html)
-            self.assertIn('JSONEditor', html)
+            self.assertIn('data-jsoneditor-options', html)
 
     def test_no_code_injection_via_dimensions(self):
         """Test that width/height parameters don't allow code injection"""
@@ -132,7 +132,7 @@ class JSONEditorWidgetSecurityTests(TestCase):
         self.assertIn('test_field_data', html)  # JSON script element should be present
 
         # Count script tags - should only be the ones we expect
-        script_count = html.count('<script>')
+        script_count = html.count('type="application/json"')
         self.assertGreaterEqual(script_count, 1)  # At least our widget script
 
         # Should not contain our dangerous script as executable code
