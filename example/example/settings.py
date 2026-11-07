@@ -25,7 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_json_widget',
-    'django_extensions',
+
     # if your app has other dependencies that need to be added to the site
     # they should be added here
     'characters'
@@ -65,12 +65,8 @@ WSGI_APPLICATION = 'example.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'example_json_widget',
-        'USER': 'postgres',
-        'PASSWORD': 'docker',
-        'HOST': '0.0.0.0',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
