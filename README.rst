@@ -72,6 +72,30 @@ You can customize the JSONEditorWidget with the following options:
 * **mode (deprecated)**: The default editor mode. This argument is redundant because it can be specified as a part of ``options``.  Preserved for backwards compatibility with version 0.2.0.
 * **attrs**: HTML attributes to be applied to the wrapper element. See the `Django Widget documentation`_.
 
+Content Security Policy
+-----------------------
+
+The widget loads its executable initialization code from a static JavaScript
+file. Its initial value is embedded in a non-executable ``application/json``
+script element. However, the bundled JSONEditor and its Ace code editor are
+not fully compatible with a strict Content Security Policy (CSP):
+
+* The widget and editor use inline styles, and Ace injects style elements.
+  A policy that disallows inline styles can prevent the editor from displaying
+  correctly.
+* The default ``code`` mode creates a ``blob:`` worker. A restrictive
+  ``worker-src`` can block it.
+* JSON schema validation compiles schemas using JavaScript's ``Function``
+  constructor. A ``script-src`` that disallows ``'unsafe-eval'`` blocks this.
+
+Consequently, allowing only ``'self'`` for scripts and styles is not sufficient
+for all widget features. The CSP directives and relaxations needed depend on
+the chosen editor modes and options; test the actual configuration with CSP
+enforcement before deploying. Allowing inline styles, ``blob:`` workers, or
+``'unsafe-eval'`` weakens a policy, so projects that cannot accept those
+exceptions should use a different editor or provide compatible assets via
+``JSON_EDITOR_JS`` and ``JSON_EDITOR_CSS``.
+
 Accessing JsonEditor Instance
 -----------------------------
 
