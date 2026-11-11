@@ -55,3 +55,7 @@ docs/_build
 # OS
 .DS_Store
 example/.DS_Store
+
+# Local SQLite databases
+*.sqlite3
+*.sqlite3-*

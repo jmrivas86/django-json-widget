@@ -9,3 +9,8 @@ class Character(models.Model):
 
     def __str__(self):  # __unicode__ on Python 2
         return self.name
+
+
+class CharacterDetail(models.Model):
+    character = models.ForeignKey(Character, on_delete=models.CASCADE)
+    data = models.JSONField(default=dict, blank=True, null=True)
