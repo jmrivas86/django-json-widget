@@ -40,6 +40,7 @@ class JSONEditorWidget(forms.Widget):
         context['widget']['options'] = json.dumps(self.options)
         context['widget']['width'] = self.width
         context['widget']['height'] = self.height
+        context['widget']['has_style'] = bool(context['widget']['attrs'].get('style'))
 
         return context
 
