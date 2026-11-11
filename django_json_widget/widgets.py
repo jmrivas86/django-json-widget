@@ -2,12 +2,14 @@ import json
 
 from django import forms
 from django.conf import settings
+from django.forms.fields import InvalidJSONInput
 
 
 class JSONEditorWidget(forms.Widget):
     class Media:
         js = (
             getattr(settings, "JSON_EDITOR_JS", 'dist/jsoneditor.min.js'),
+            'django_json_widget.js',
         )
         css = {
             'all': (
@@ -34,6 +36,7 @@ class JSONEditorWidget(forms.Widget):
 
     def get_context(self, name, value, attrs):
         context = super().get_context(name, value, attrs)
+        context['widget']['is_invalid'] = isinstance(value, InvalidJSONInput)
         context['widget']['options'] = json.dumps(self.options)
         context['widget']['width'] = self.width
         context['widget']['height'] = self.height
@@ -41,6 +44,10 @@ class JSONEditorWidget(forms.Widget):
         return context
 
     def format_value(self, value):
+        if isinstance(value, InvalidJSONInput):
+            return value
+        if value is None or value == "":
+            return None
         if not isinstance(value, (dict, list)):
             return json.loads(value)
         else:
