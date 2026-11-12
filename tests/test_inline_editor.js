@@ -58,3 +58,19 @@ test('clearing and invalid input replace the submitted value instead of keeping 
     row.container.jsonEditor.edit('{');
     assert.equal(row.textarea.value, '{');
 });
+
+test('Wagtail inline events initialize saved and added rows only once', () => {
+    const s = setup();
+    const saved = s.row('id_items-0-data', false, '{"saved":true}');
+    s.handlers['w-formset:ready']({target: saved});
+    assert.equal(saved.textarea.value, '{"saved":true}');
+    const editor = saved.container.jsonEditor;
+    s.handlers.DOMContentLoaded();
+    s.handlers['w-formset:ready']({target: saved});
+    assert.equal(saved.container.jsonEditor, editor);
+    const added = s.row('id_items-1-data');
+    s.handlers['w-formset:added']({target: added});
+    added.container.jsonEditor.edit('{"new":true}');
+    assert.equal(added.textarea.value, '{"new":true}');
+    assert.equal(saved.textarea.value, '{"saved":true}');
+});
