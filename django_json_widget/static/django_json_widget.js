@@ -26,6 +26,9 @@
 
     document.addEventListener('DOMContentLoaded', function () { initialize(document); });
     document.addEventListener('formset:added', function (event) { initialize(event.target); });
+    // Wagtail InlinePanel uses its own formset lifecycle events.
+    document.addEventListener('w-formset:ready', function (event) { initialize(event.target); });
+    document.addEventListener('w-formset:added', function (event) { initialize(event.target); });
     // Django < 4.1 dispatches the formset event through jQuery.
     if (window.django && window.django.jQuery) {
         window.django.jQuery(document).on('formset:added', function (event, row) {

@@ -61,6 +61,39 @@ You can also add the widget in your forms.py:
                 'jsonfield': JSONEditorWidget
             }
 
+Wagtail
+-------
+
+For a Django ``JSONField`` on a Wagtail page or snippet, pass the widget to
+``FieldPanel``. Add ``django_json_widget`` to ``INSTALLED_APPS`` as above.
+
+.. code-block:: python
+
+    from django.db import models
+    from wagtail.admin.panels import FieldPanel
+    from wagtail.models import Page
+    from django_json_widget.widgets import JSONEditorWidget
+
+
+    class ConfigurationPage(Page):
+        configuration = models.JSONField(default=dict, blank=True)
+
+        content_panels = Page.content_panels + [
+            FieldPanel(
+                'configuration',
+                widget=JSONEditorWidget(width='100%'),
+            ),
+        ]
+
+Wagtail includes the widget's JavaScript and CSS through form media. The same
+``FieldPanel`` configuration can be used on a child model displayed through
+``InlinePanel``; editors initialize when rows are added. Django validates the
+submitted JSON, including invalid or cleared input.
+
+This integration is tested with Wagtail 7.2 and Django 5.2. It covers model
+fields rendered by panels. Using the widget inside a custom ``StreamField``
+block requires a Wagtail Telepath widget adapter.
+
 Configuration
 -------------
 
