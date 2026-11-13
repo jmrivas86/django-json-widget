@@ -2,6 +2,13 @@
 Changelog
 =========
 
+2.2.0 (2026-11-13)
+------------------
+
+* Added CSP guide.
+* Implemented Wagtail support.
+* Fixed inline editors.
+
 2.1.1 (2025-12-12)
 ------------------
 
