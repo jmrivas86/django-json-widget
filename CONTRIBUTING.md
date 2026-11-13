@@ -57,9 +57,9 @@ Ready to contribute? Here's how to set up `django-json-widget` for local develop
    pip install -r requirements_test.txt
    ```
 
-4. Create a branch for local development from the dev branch:
+4. Create a branch for local development from the master branch:
    ```bash
-   git checkout dev
+   git checkout master
    git checkout -b name-of-your-branch
    ```
 
@@ -78,6 +78,6 @@ Ready to contribute? Here's how to set up `django-json-widget` for local develop
 
 Before you submit a pull request, check that it meets these guidelines:
 
-1. **The pull request must be submitted against the `dev` branch.**
+1. **The pull request must be submitted against the `master` branch.**
 2. Please explain what you have done in the pull request.
 3. Make sure you have had passed pre-commit hooks.
