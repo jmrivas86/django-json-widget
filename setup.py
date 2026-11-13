@@ -64,7 +64,6 @@ setup(
         'Framework :: Django',
         'Framework :: Django :: 5.0',
         'Framework :: Django :: 5.2',
-        'Framework :: Wagtail :: 7.2',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
